@@ -1,0 +1,7 @@
+language: python
+python: 3.5
+
+before_install:
+- pip install git+https://github.com/fate0/getproxy.git@master
+install:
+- getproxy
