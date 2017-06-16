@@ -21,5 +21,5 @@ before_script:
 - cd deploy
 script:
 - git add proxy.list
-- git commit -m "`date`"
+- git commit -m "`env TZ=Asia/Shanghai date`"
 - git push -u origin master
