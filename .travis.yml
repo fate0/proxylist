@@ -1,7 +1,19 @@
 language: python
 python: 3.5
-
 before_install:
+- openssl aes-256-cbc -K $encrypted_7b16cb35cfc7_key -iv $encrypted_7b16cb35cfc7_iv
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp ssh_config ~/.ssh/config
+- git config --global user.name "fate0"
+- git config --global user.email "fate0@fatezero.org"
 - pip install git+https://github.com/fate0/getproxy.git@master
 install:
-- getproxy
+- getproxy --in-proxy=proxy.list --out-proxy=proxy.list.out
+- mv proxy.list.out proxy.list
+script:
+- git add proxy.list
+- git commit -m "`date`"
+- git push -u origin master
