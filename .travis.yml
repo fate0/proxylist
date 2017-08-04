@@ -11,7 +11,7 @@ before_install:
 - ssh-add ~/.ssh/id_rsa
 - cp ssh_config ~/.ssh/config
 - git config --global user.name "fate0"
-- git config --global user.email "fate0@fatezero.org"
+- git config --global user.email "git@fatezero.org"
 - pip install git+https://github.com/fate0/getproxy.git@master
 - git clone -b master --depth=2 git@github.com:fate0/proxylist.git deploy
 install:
