@@ -22,7 +22,7 @@ before_script:
 - cd deploy
 script:
 - git init
-- git add proxy.list
+- git add .
 - git commit -m "`env TZ=Asia/Shanghai date`"
 - git remote add origin git@github.com:fate0/proxylist.git
 - git push -f -u origin master
