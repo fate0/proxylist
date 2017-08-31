@@ -17,9 +17,12 @@ before_install:
 install:
 - getproxy --in-proxy=deploy/proxy.list --out-proxy=deploy/proxy.list.out
 - mv deploy/proxy.list.out deploy/proxy.list
+- rm -rf deploy/.git
 before_script:
 - cd deploy
 script:
+- git init
 - git add proxy.list
 - git commit -m "`env TZ=Asia/Shanghai date`"
-- git push -u origin master
+- git remote add origin git@github.com:fate0/proxylist.git
+- git push -f -u origin master
