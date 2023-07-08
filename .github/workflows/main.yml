@@ -20,12 +20,12 @@ jobs:
     - name: Set up Python 3.11.3
       uses: actions/setup-python@v2
       with:
-        python-version: 3.11.4
+        python-version: 3.11.3
     - name: setup env & install getproxy
       run: |
-        git config --global user.name "fate0"
-        git config --global user.email "git@fatezero.org"
-        pip install git+https://github.com/fate0/getproxy.git@master
+        git config --global user.name "roac2099"
+        git config --global user.email "br2099@gmail.com" 
+        pip install git+https://github.com/roac2099/proxylist.git@master
 
     - name: run getproxy
       run: |
@@ -38,7 +38,7 @@ jobs:
         git init
         git add .
         git commit -m "`env TZ=Asia/Shanghai date`"
-        git remote add origin git@github.com:fate0/proxylist.git
+        git remote add origin git@github.com:roac2099/proxylist.git
         
     - name: push
       uses: ad-m/github-push-action@master
